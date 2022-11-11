@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import tests.BaseTest;
@@ -10,15 +11,8 @@ public class BasePage {
 
     public BasePage() {
         driver = BaseTest.getDriver();
+        PageFactory.initElements(driver, this);
     }
 
-    @BeforeClass
-    public void setUp(){
-        driver.get("https://parabank.parasoft.com/parabank/register.htm");
-    }
 
-    @AfterClass
-    public void ternDown(){
-        driver.quit();
-    }
 }
