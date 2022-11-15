@@ -6,6 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import steps.RegistrationSteps;
 
 
 public class BaseTest {
@@ -15,10 +16,13 @@ public class BaseTest {
         return driver;
     }
 
+    RegistrationSteps steps;
+
     @BeforeClass
     public void setUp(){
         driver.get("https://parabank.parasoft.com/parabank/register.htm");
         PageFactory.initElements(driver, this);
+        steps = new RegistrationSteps();
     }
 
     @AfterClass
